@@ -15,5 +15,6 @@
   "description": "Simple validation provider",
   "main": "dist/index.js",
   "author": "Paul Westerdale <paul@threadstud.io>",
-  "license": "MIT"
+  "license": "MIT",
+  "repository": "git@github.com:threadstudios/validator.git"
 }
