@@ -1,0 +1,23 @@
+const { isValid } = require('../dist');
+
+describe("Thread Validator", () => {
+
+    test("It should validate a simple object", () => {
+        const schema = {
+            title : "isRequired",
+            email : "isRequired|isEmail"
+        }
+
+        const result = isValid(schema, {
+            title: 'Test',
+            email: 'paul'
+        });
+
+        expect(result.errorFields.includes('email')).toBe(true);
+        expect(result.fields.title).toBe(true);
+        expect(result.fields.email).toBe(false);
+        expect(result.isValid).toBe(false);
+
+    });
+
+});
