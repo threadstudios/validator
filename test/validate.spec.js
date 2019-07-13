@@ -13,7 +13,7 @@ describe("Thread Validator", () => {
             email: 'paul'
         });
 
-        expect(result.errorFields.includes('email')).toBe(true);
+        expect(result.errorFields.email).toBe(true);
         expect(result.fields.title).toBe(true);
         expect(result.fields.email).toBe(false);
         expect(result.isValid).toBe(false);

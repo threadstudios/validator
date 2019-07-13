@@ -34,8 +34,8 @@ function runRules(rules, value, key) {
 export function isValid(config, values, lang = false) {
     let result = {
         fields : {},
-        errorFields : [],
-        errorMessages: [],
+        errorFields : {},
+        errorMessages: {},
         isValid : null
     };
     for(let k in config) {
@@ -47,8 +47,8 @@ export function isValid(config, values, lang = false) {
         }
         result.fields[k] = ruleResult.isValid;
         if (ruleResult.isValid === false) {
-            result.errorFields.push(k);
-            result.errorMessages.push(...ruleResult.errors);
+            result.errorFields[k] = true;
+            result.errorMessages[k] = [...ruleResult.errors];
         }
     }
     result.isValid = Object.values(result.fields)
