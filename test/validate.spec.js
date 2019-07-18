@@ -1,23 +1,20 @@
-const { isValid } = require('../dist');
+const { isValid } = require('../dist')
 
-describe("Thread Validator", () => {
-
-    test("It should validate a simple object", () => {
+describe('Thread Validator', () => {
+    test('It should validate a simple object', () => {
         const schema = {
-            title : "isRequired",
-            email : "isRequired|isEmail"
+            title: 'isRequired',
+            email: 'isRequired|isEmail',
         }
 
         const result = isValid(schema, {
             title: 'Test',
-            email: 'paul'
-        });
+            email: 'paul',
+        })
 
-        expect(result.errorFields.email).toBe(true);
-        expect(result.fields.title).toBe(true);
-        expect(result.fields.email).toBe(false);
-        expect(result.isValid).toBe(false);
-
-    });
-
-});
+        expect(result.errorFields.email).toBe(true)
+        expect(result.fields.title).toBe(true)
+        expect(result.fields.email).toBe(false)
+        expect(result.isValid).toBe(false)
+    })
+})
